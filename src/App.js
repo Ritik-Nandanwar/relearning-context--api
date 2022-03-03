@@ -5,17 +5,17 @@ import { Route } from "react-router-dom";
 import Home from "./Components/Home";
 import Cart from "./Components/Cart";
 import { useState } from "react";
+import {CartContext} from './Context'
 function App() {
-  const [cart, setCart] = useState([]);
   return (
     <BrowserRouter>
       <Header />
       <div className="App">
         <Route exact path="/">
-          <Home cart={cart} setCart={setCart} />
+          <Home/>
         </Route>
         <Route exact path="/cart">
-          <Cart cart={cart} setCart={setCart} />
+          <Cart/>
         </Route>
       </div>
     </BrowserRouter>

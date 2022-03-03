@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { CartContext } from "../Context";
 import SingleProduct from "./SingleProduct";
 
-const Home = ({cart , setCart}) => {
+const Home = () => {
   
   const productsArray = [
     {
@@ -41,11 +42,12 @@ const Home = ({cart , setCart}) => {
     },
   ];
   const [products] = useState(productsArray);
+  const {cart , setCart} = useContext(CartContext)
   console.log(cart);
   return (
     <div className="productContainer">
       {products.map((product) => (
-        <SingleProduct key={product.id} cart={cart} setCart={setCart} product={product} />
+        <SingleProduct key={product.id} product={product} cart={cart} setCart={setCart}/>
       ))}
     </div>
   );
